@@ -1,0 +1,785 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Thu Apr 14 22:28:21 2022
+# Process ID: 10104
+# Current directory: C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11780 C:\Users\hasan\Desktop\CS224Labs\Lab05Project\Lab05\Lab05.xpr
+# Log file: C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/vivado.log
+# Journal file: C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/data/ip'.
+open_project: Time (s): cpu = 00:00:27 ; elapsed = 00:00:12 . Memory (MB): peak = 1013.652 ; gain = 0.000
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'MipsPipe_testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj MipsPipe_testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PipeFtoD
+INFO: [VRFC 10-311] analyzing module PipeWtoF
+INFO: [VRFC 10-311] analyzing module PipeDtoE
+INFO: [VRFC 10-311] analyzing module PipeEtoM
+INFO: [VRFC 10-311] analyzing module PipeMtoW
+INFO: [VRFC 10-311] analyzing module datapath
+INFO: [VRFC 10-2458] undeclared symbol RegWriteM, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:252]
+INFO: [VRFC 10-2458] undeclared symbol MemtoRegM, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:252]
+INFO: [VRFC 10-2458] undeclared symbol RegWriteE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:254]
+INFO: [VRFC 10-2458] undeclared symbol MemtoRegE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:254]
+INFO: [VRFC 10-2458] undeclared symbol FlushE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:258]
+INFO: [VRFC 10-2458] undeclared symbol StallD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:258]
+INFO: [VRFC 10-2458] undeclared symbol PCSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:276]
+INFO: [VRFC 10-2458] undeclared symbol clear, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:300]
+INFO: [VRFC 10-2458] undeclared symbol MemWriteE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:303]
+INFO: [VRFC 10-2458] undeclared symbol ALUSrcE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:303]
+INFO: [VRFC 10-2458] undeclared symbol RegDstE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:303]
+INFO: [VRFC 10-2458] undeclared symbol MemWriteM, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:329]
+INFO: [VRFC 10-2458] undeclared symbol MemtoRegW, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:341]
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-311] analyzing module top_mips
+INFO: [VRFC 10-311] analyzing module imem
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-311] analyzing module dmem
+INFO: [VRFC 10-311] analyzing module maindec
+INFO: [VRFC 10-311] analyzing module aludec
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module sl2
+INFO: [VRFC 10-311] analyzing module signext
+INFO: [VRFC 10-311] analyzing module flopr
+INFO: [VRFC 10-311] analyzing module mux2
+INFO: [VRFC 10-311] analyzing module mux4
+INFO: [VRFC 10-311] analyzing module comparator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MipsPipe_testbench
+INFO: [VRFC 10-2458] undeclared symbol PcSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv:36]
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xelab -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.maindec
+Compiling module xil_defaultlib.aludec
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.PipeWtoF
+Compiling module xil_defaultlib.mux2(WIDTH=32)
+Compiling module xil_defaultlib.imem
+Compiling module xil_defaultlib.PipeFtoD
+Compiling module xil_defaultlib.signext
+Compiling module xil_defaultlib.sl2
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.comparator
+Compiling module xil_defaultlib.PipeDtoE
+Compiling module xil_defaultlib.mux2(WIDTH=5)
+Compiling module xil_defaultlib.mux4(WIDTH=32)
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.PipeEtoM
+Compiling module xil_defaultlib.dmem
+Compiling module xil_defaultlib.PipeMtoW
+Compiling module xil_defaultlib.datapath
+Compiling module xil_defaultlib.top_mips
+Compiling module xil_defaultlib.MipsPipe_testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot MipsPipe_testbench_behav
+run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 1013.652 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "MipsPipe_testbench_behav -key {Behavioral:sim_1:Functional:MipsPipe_testbench} -tclbatch {MipsPipe_testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+source MipsPipe_testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+xsim: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 1013.652 ; gain = 0.000
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'MipsPipe_testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1013.652 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'MipsPipe_testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj MipsPipe_testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PipeFtoD
+INFO: [VRFC 10-311] analyzing module PipeWtoF
+INFO: [VRFC 10-311] analyzing module PipeDtoE
+INFO: [VRFC 10-311] analyzing module PipeEtoM
+INFO: [VRFC 10-311] analyzing module PipeMtoW
+INFO: [VRFC 10-311] analyzing module datapath
+INFO: [VRFC 10-2458] undeclared symbol RegWriteW, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:250]
+INFO: [VRFC 10-2458] undeclared symbol RegWriteM, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:252]
+INFO: [VRFC 10-2458] undeclared symbol MemtoRegM, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:252]
+INFO: [VRFC 10-2458] undeclared symbol RegWriteE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:254]
+INFO: [VRFC 10-2458] undeclared symbol MemtoRegE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:254]
+INFO: [VRFC 10-2458] undeclared symbol FlushE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:258]
+INFO: [VRFC 10-2458] undeclared symbol StallD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:258]
+INFO: [VRFC 10-2458] undeclared symbol PCSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:276]
+INFO: [VRFC 10-2458] undeclared symbol clear, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:300]
+INFO: [VRFC 10-2458] undeclared symbol MemWriteE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:303]
+INFO: [VRFC 10-2458] undeclared symbol ALUSrcE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:303]
+INFO: [VRFC 10-2458] undeclared symbol RegDstE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:303]
+INFO: [VRFC 10-2458] undeclared symbol MemWriteM, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:329]
+INFO: [VRFC 10-2458] undeclared symbol MemtoRegW, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:341]
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-311] analyzing module top_mips
+INFO: [VRFC 10-311] analyzing module imem
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-311] analyzing module dmem
+INFO: [VRFC 10-311] analyzing module maindec
+INFO: [VRFC 10-311] analyzing module aludec
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module sl2
+INFO: [VRFC 10-311] analyzing module signext
+INFO: [VRFC 10-311] analyzing module flopr
+INFO: [VRFC 10-311] analyzing module mux2
+INFO: [VRFC 10-311] analyzing module mux4
+INFO: [VRFC 10-311] analyzing module comparator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MipsPipe_testbench
+INFO: [VRFC 10-2458] undeclared symbol PcSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv:36]
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xelab -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.maindec
+Compiling module xil_defaultlib.aludec
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.PipeWtoF
+Compiling module xil_defaultlib.mux2(WIDTH=32)
+Compiling module xil_defaultlib.imem
+Compiling module xil_defaultlib.PipeFtoD
+Compiling module xil_defaultlib.signext
+Compiling module xil_defaultlib.sl2
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.comparator
+Compiling module xil_defaultlib.PipeDtoE
+Compiling module xil_defaultlib.mux2(WIDTH=5)
+Compiling module xil_defaultlib.mux4(WIDTH=32)
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.PipeEtoM
+Compiling module xil_defaultlib.dmem
+Compiling module xil_defaultlib.PipeMtoW
+Compiling module xil_defaultlib.datapath
+Compiling module xil_defaultlib.top_mips
+Compiling module xil_defaultlib.MipsPipe_testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot MipsPipe_testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "MipsPipe_testbench_behav -key {Behavioral:sim_1:Functional:MipsPipe_testbench} -tclbatch {MipsPipe_testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+source MipsPipe_testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'MipsPipe_testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1013.652 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'MipsPipe_testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj MipsPipe_testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PipeFtoD
+INFO: [VRFC 10-311] analyzing module PipeWtoF
+INFO: [VRFC 10-311] analyzing module PipeDtoE
+INFO: [VRFC 10-311] analyzing module PipeEtoM
+INFO: [VRFC 10-311] analyzing module PipeMtoW
+INFO: [VRFC 10-311] analyzing module datapath
+INFO: [VRFC 10-2458] undeclared symbol RegWriteM, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:253]
+INFO: [VRFC 10-2458] undeclared symbol MemtoRegM, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:253]
+INFO: [VRFC 10-2458] undeclared symbol RegWriteE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:255]
+INFO: [VRFC 10-2458] undeclared symbol MemtoRegE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:255]
+INFO: [VRFC 10-2458] undeclared symbol FlushE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:259]
+INFO: [VRFC 10-2458] undeclared symbol StallD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:259]
+INFO: [VRFC 10-2458] undeclared symbol PCSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:277]
+INFO: [VRFC 10-2458] undeclared symbol clear, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:301]
+INFO: [VRFC 10-2458] undeclared symbol MemWriteE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:304]
+INFO: [VRFC 10-2458] undeclared symbol ALUSrcE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:304]
+INFO: [VRFC 10-2458] undeclared symbol RegDstE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:304]
+INFO: [VRFC 10-2458] undeclared symbol MemWriteM, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:330]
+INFO: [VRFC 10-2458] undeclared symbol MemtoRegW, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:342]
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-311] analyzing module top_mips
+INFO: [VRFC 10-311] analyzing module imem
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-311] analyzing module dmem
+INFO: [VRFC 10-311] analyzing module maindec
+INFO: [VRFC 10-311] analyzing module aludec
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module sl2
+INFO: [VRFC 10-311] analyzing module signext
+INFO: [VRFC 10-311] analyzing module flopr
+INFO: [VRFC 10-311] analyzing module mux2
+INFO: [VRFC 10-311] analyzing module mux4
+INFO: [VRFC 10-311] analyzing module comparator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MipsPipe_testbench
+INFO: [VRFC 10-2458] undeclared symbol PcSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv:36]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xelab -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 5 for port 'rsE' [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:256]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.maindec
+Compiling module xil_defaultlib.aludec
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.PipeWtoF
+Compiling module xil_defaultlib.mux2(WIDTH=32)
+Compiling module xil_defaultlib.imem
+Compiling module xil_defaultlib.PipeFtoD
+Compiling module xil_defaultlib.signext
+Compiling module xil_defaultlib.sl2
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.comparator
+Compiling module xil_defaultlib.PipeDtoE
+Compiling module xil_defaultlib.mux2(WIDTH=5)
+Compiling module xil_defaultlib.mux4(WIDTH=32)
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.PipeEtoM
+Compiling module xil_defaultlib.dmem
+Compiling module xil_defaultlib.PipeMtoW
+Compiling module xil_defaultlib.datapath
+Compiling module xil_defaultlib.top_mips
+Compiling module xil_defaultlib.MipsPipe_testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot MipsPipe_testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "MipsPipe_testbench_behav -key {Behavioral:sim_1:Functional:MipsPipe_testbench} -tclbatch {MipsPipe_testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+source MipsPipe_testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'MipsPipe_testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 1013.652 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'MipsPipe_testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj MipsPipe_testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PipeFtoD
+INFO: [VRFC 10-311] analyzing module PipeWtoF
+INFO: [VRFC 10-311] analyzing module PipeDtoE
+INFO: [VRFC 10-311] analyzing module PipeEtoM
+INFO: [VRFC 10-311] analyzing module PipeMtoW
+INFO: [VRFC 10-311] analyzing module datapath
+WARNING: [VRFC 10-3248] data object 'ALUControlE' is already declared [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:246]
+WARNING: [VRFC 10-3703] second declaration of 'ALUControlE' ignored [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:246]
+INFO: [VRFC 10-2458] undeclared symbol rsE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:260]
+INFO: [VRFC 10-2458] undeclared symbol FlushE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:263]
+INFO: [VRFC 10-2458] undeclared symbol PCSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:281]
+INFO: [VRFC 10-2458] undeclared symbol clear, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:305]
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-311] analyzing module top_mips
+INFO: [VRFC 10-311] analyzing module imem
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-311] analyzing module dmem
+INFO: [VRFC 10-311] analyzing module maindec
+INFO: [VRFC 10-311] analyzing module aludec
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module sl2
+INFO: [VRFC 10-311] analyzing module signext
+INFO: [VRFC 10-311] analyzing module flopr
+INFO: [VRFC 10-311] analyzing module mux2
+INFO: [VRFC 10-311] analyzing module mux4
+INFO: [VRFC 10-311] analyzing module comparator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MipsPipe_testbench
+INFO: [VRFC 10-2458] undeclared symbol PcSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv:36]
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xelab -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 5 for port 'rsE' [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:260]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.maindec
+Compiling module xil_defaultlib.aludec
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.PipeWtoF
+Compiling module xil_defaultlib.mux2(WIDTH=32)
+Compiling module xil_defaultlib.imem
+Compiling module xil_defaultlib.PipeFtoD
+Compiling module xil_defaultlib.signext
+Compiling module xil_defaultlib.sl2
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.comparator
+Compiling module xil_defaultlib.PipeDtoE
+Compiling module xil_defaultlib.mux2(WIDTH=5)
+Compiling module xil_defaultlib.mux4(WIDTH=32)
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.PipeEtoM
+Compiling module xil_defaultlib.dmem
+Compiling module xil_defaultlib.PipeMtoW
+Compiling module xil_defaultlib.datapath
+Compiling module xil_defaultlib.top_mips
+Compiling module xil_defaultlib.MipsPipe_testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot MipsPipe_testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "MipsPipe_testbench_behav -key {Behavioral:sim_1:Functional:MipsPipe_testbench} -tclbatch {MipsPipe_testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+source MipsPipe_testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'MipsPipe_testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 1013.652 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'MipsPipe_testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj MipsPipe_testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PipeFtoD
+INFO: [VRFC 10-311] analyzing module PipeWtoF
+INFO: [VRFC 10-311] analyzing module PipeDtoE
+INFO: [VRFC 10-311] analyzing module PipeEtoM
+INFO: [VRFC 10-311] analyzing module PipeMtoW
+INFO: [VRFC 10-311] analyzing module datapath
+INFO: [VRFC 10-2458] undeclared symbol rsE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:259]
+INFO: [VRFC 10-2458] undeclared symbol FlushE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:262]
+INFO: [VRFC 10-2458] undeclared symbol PCSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:280]
+INFO: [VRFC 10-2458] undeclared symbol clear, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:304]
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-311] analyzing module top_mips
+INFO: [VRFC 10-311] analyzing module imem
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-311] analyzing module dmem
+INFO: [VRFC 10-311] analyzing module maindec
+INFO: [VRFC 10-311] analyzing module aludec
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module sl2
+INFO: [VRFC 10-311] analyzing module signext
+INFO: [VRFC 10-311] analyzing module flopr
+INFO: [VRFC 10-311] analyzing module mux2
+INFO: [VRFC 10-311] analyzing module mux4
+INFO: [VRFC 10-311] analyzing module comparator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MipsPipe_testbench
+INFO: [VRFC 10-2458] undeclared symbol PcSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv:36]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xelab -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 5 for port 'rsE' [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:259]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.maindec
+Compiling module xil_defaultlib.aludec
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.PipeWtoF
+Compiling module xil_defaultlib.mux2(WIDTH=32)
+Compiling module xil_defaultlib.imem
+Compiling module xil_defaultlib.PipeFtoD
+Compiling module xil_defaultlib.signext
+Compiling module xil_defaultlib.sl2
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.comparator
+Compiling module xil_defaultlib.PipeDtoE
+Compiling module xil_defaultlib.mux2(WIDTH=5)
+Compiling module xil_defaultlib.mux4(WIDTH=32)
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.PipeEtoM
+Compiling module xil_defaultlib.dmem
+Compiling module xil_defaultlib.PipeMtoW
+Compiling module xil_defaultlib.datapath
+Compiling module xil_defaultlib.top_mips
+Compiling module xil_defaultlib.MipsPipe_testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot MipsPipe_testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "MipsPipe_testbench_behav -key {Behavioral:sim_1:Functional:MipsPipe_testbench} -tclbatch {MipsPipe_testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+source MipsPipe_testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'MipsPipe_testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 1013.652 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'MipsPipe_testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj MipsPipe_testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PipeFtoD
+INFO: [VRFC 10-311] analyzing module PipeWtoF
+INFO: [VRFC 10-311] analyzing module PipeDtoE
+INFO: [VRFC 10-311] analyzing module PipeEtoM
+INFO: [VRFC 10-311] analyzing module PipeMtoW
+INFO: [VRFC 10-311] analyzing module datapath
+INFO: [VRFC 10-2458] undeclared symbol FlushE, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:262]
+INFO: [VRFC 10-2458] undeclared symbol PCSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:280]
+INFO: [VRFC 10-2458] undeclared symbol clear, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:304]
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-311] analyzing module top_mips
+INFO: [VRFC 10-311] analyzing module imem
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-311] analyzing module dmem
+INFO: [VRFC 10-311] analyzing module maindec
+INFO: [VRFC 10-311] analyzing module aludec
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module sl2
+INFO: [VRFC 10-311] analyzing module signext
+INFO: [VRFC 10-311] analyzing module flopr
+INFO: [VRFC 10-311] analyzing module mux2
+INFO: [VRFC 10-311] analyzing module mux4
+INFO: [VRFC 10-311] analyzing module comparator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MipsPipe_testbench
+INFO: [VRFC 10-2458] undeclared symbol PcSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv:36]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xelab -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.maindec
+Compiling module xil_defaultlib.aludec
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.PipeWtoF
+Compiling module xil_defaultlib.mux2(WIDTH=32)
+Compiling module xil_defaultlib.imem
+Compiling module xil_defaultlib.PipeFtoD
+Compiling module xil_defaultlib.signext
+Compiling module xil_defaultlib.sl2
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.comparator
+Compiling module xil_defaultlib.PipeDtoE
+Compiling module xil_defaultlib.mux2(WIDTH=5)
+Compiling module xil_defaultlib.mux4(WIDTH=32)
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.PipeEtoM
+Compiling module xil_defaultlib.dmem
+Compiling module xil_defaultlib.PipeMtoW
+Compiling module xil_defaultlib.datapath
+Compiling module xil_defaultlib.top_mips
+Compiling module xil_defaultlib.MipsPipe_testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot MipsPipe_testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "MipsPipe_testbench_behav -key {Behavioral:sim_1:Functional:MipsPipe_testbench} -tclbatch {MipsPipe_testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+source MipsPipe_testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'MipsPipe_testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 1013.652 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'MipsPipe_testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj MipsPipe_testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PipeFtoD
+INFO: [VRFC 10-311] analyzing module PipeWtoF
+INFO: [VRFC 10-311] analyzing module PipeDtoE
+INFO: [VRFC 10-311] analyzing module PipeEtoM
+INFO: [VRFC 10-311] analyzing module PipeMtoW
+INFO: [VRFC 10-311] analyzing module datapath
+INFO: [VRFC 10-2458] undeclared symbol PCSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:280]
+INFO: [VRFC 10-2458] undeclared symbol clear, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sources_1/new/Mips_Pipelined.sv:304]
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-311] analyzing module top_mips
+INFO: [VRFC 10-311] analyzing module imem
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-311] analyzing module dmem
+INFO: [VRFC 10-311] analyzing module maindec
+INFO: [VRFC 10-311] analyzing module aludec
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module sl2
+INFO: [VRFC 10-311] analyzing module signext
+INFO: [VRFC 10-311] analyzing module flopr
+INFO: [VRFC 10-311] analyzing module mux2
+INFO: [VRFC 10-311] analyzing module mux4
+INFO: [VRFC 10-311] analyzing module comparator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MipsPipe_testbench
+INFO: [VRFC 10-2458] undeclared symbol PcSrcD, assumed default net type wire [C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.srcs/sim_1/new/MipsPipe_testbench.sv:36]
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+"xelab -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.maindec
+Compiling module xil_defaultlib.aludec
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.PipeWtoF
+Compiling module xil_defaultlib.mux2(WIDTH=32)
+Compiling module xil_defaultlib.imem
+Compiling module xil_defaultlib.PipeFtoD
+Compiling module xil_defaultlib.signext
+Compiling module xil_defaultlib.sl2
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.comparator
+Compiling module xil_defaultlib.PipeDtoE
+Compiling module xil_defaultlib.mux2(WIDTH=5)
+Compiling module xil_defaultlib.mux4(WIDTH=32)
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.PipeEtoM
+Compiling module xil_defaultlib.dmem
+Compiling module xil_defaultlib.PipeMtoW
+Compiling module xil_defaultlib.datapath
+Compiling module xil_defaultlib.top_mips
+Compiling module xil_defaultlib.MipsPipe_testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot MipsPipe_testbench_behav
+
+****** Webtalk v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim/xsim.dir/MipsPipe_testbench_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim/xsim.dir/MipsPipe_testbench_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Thu Apr 14 23:05:13 2022. For additional details about this file, please refer to the WebTalk help file at C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Thu Apr 14 23:05:13 2022...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 1013.652 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '11' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "MipsPipe_testbench_behav -key {Behavioral:sim_1:Functional:MipsPipe_testbench} -tclbatch {MipsPipe_testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+source MipsPipe_testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'MipsPipe_testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:17 . Memory (MB): peak = 1013.652 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 14 23:14:39 2022...

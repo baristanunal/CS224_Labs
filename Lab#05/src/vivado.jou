@@ -1,0 +1,78 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Fri Apr 15 13:21:33 2022
+# Process ID: 12308
+# Current directory: C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10160 C:\Users\hasan\Desktop\CS224Labs\Lab05Project\Lab05\Lab05.xpr
+# Log file: C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/vivado.log
+# Journal file: C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/hasan/Desktop/CS224Labs/Lab05Project/Lab05/Lab05.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation
+source MipsPipe_testbench.tcl
+close_sim
+launch_simulation

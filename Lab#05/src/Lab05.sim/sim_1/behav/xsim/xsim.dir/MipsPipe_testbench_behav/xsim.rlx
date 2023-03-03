@@ -1,0 +1,12 @@
+
+{ 
+    crc :  5216726612209853420  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto a61cdce1b17d431f9053a120835cb70f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot MipsPipe_testbench_behav xil_defaultlib.MipsPipe_testbench xil_defaultlib.glbl" , 
+    buildDate : "May 27 2020" , 
+    buildTime : "20:09:33" , 
+    linkCmd : "C:\\Users\\hasan\\Desktop\\Vivado\\Vivado\\2020.1\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/MipsPipe_testbench_behav/xsimk.exe\"   \"xsim.dir/MipsPipe_testbench_behav/obj/xsim_0.win64.obj\" \"xsim.dir/MipsPipe_testbench_behav/obj/xsim_1.win64.obj\" -L\"C:\\Users\\hasan\\Desktop\\Vivado\\Vivado\\2020.1\\lib\\win64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

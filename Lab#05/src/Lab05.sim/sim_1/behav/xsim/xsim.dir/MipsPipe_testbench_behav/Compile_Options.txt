@@ -1,0 +1,1 @@
+-wto "a61cdce1b17d431f9053a120835cb70f" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "MipsPipe_testbench_behav" "xil_defaultlib.MipsPipe_testbench" "xil_defaultlib.glbl" -log "elaborate.log" 
