@@ -1,0 +1,168 @@
+.data
+	myArray:  	.space 80
+	newLine:  	.asciiz "\n"
+	space: 	  	.asciiz ", "	
+	msg1:	  	.asciiz "Please enter the size of the array: "
+	msgIsIden:	.asciiz "Both halves are identical."
+	msgNotIden:	.asciiz "Both halves are not identical."
+.text
+
+main:	
+	# 1.1 Ask the user for the size of the array
+	li $v0, 4
+	la $a0, msg1
+	syscall
+	
+	# 1.2 Get user input for length of the array
+	li $v0, 5
+	syscall
+	
+	# 1.3 Store the size value
+	add $s0, $v0, $0 			# $s0 = arraySize
+	
+	
+	# 2. Get the array elements
+	
+	add $t2, $0, $0				# $t2 = cntr (= 0)
+	add $t1, $0, $0				# $t1 = index (= 0)
+	j TestG
+	
+LoopG:	li $v0, 5				# get the value from user
+	syscall
+				
+	sw   $v0, myArray($t1)			# put the value in the array
+	addi $t1, $t1, 4			# enlarge the array
+	addi $t2, $t2, 1			# cntr = cntr + 1
+	
+
+TestG:	slt $t4, $t2, $s0			# set $t4 = 1 (if) i < arraySize
+	bne $t4, $0, LoopG
+	
+	
+	# 3. Print the original array
+	
+	jal prntnl
+	
+	add $t2, $0, $0				# $t2 = cntr (= 0)
+	add $t1, $0, $0				# $t1 = index (= 0)
+	j TestP
+
+
+LoopP:  lw   $t5, myArray($t1)			# $t5 = current element
+	li   $v0, 1
+	add  $a0, $t5, $0
+	syscall
+	
+	jal prntsp
+	
+	addi $t1, $t1, 4			
+	addi $t2, $t2, 1
+
+TestP:  slt $t4, $t2, $s0			# set $t4 = 1 (if) i < arraySize
+	bne $t4, $0, LoopP
+	
+	
+	
+	# 4. Check if both halves are equal
+	
+	# 4.1 Initiliaze indexes and counters
+	add $t1, $0, $0				# $t1: lower half index (starts from 0 - increases by 4)
+	add $t2, $0, $0				# $t2: upper half index (starts from 0 - increases by 4)		
+	
+	add $t3, $0, $0				# $t3: lower half counter (starts from 0 - increases by 1)
+	add $t4, $0, $0				# $t4: upper half counter (starts from 0 - increases by 1)	
+	
+	
+	# 4.2 Determine if the arraySize is odd
+	addi $t0, $t0, 2
+	div  $s0, $t0 
+	mfhi $t9
+	mflo $s1				# $s1: number of loops performed
+	
+	beq  $t9, $0, Even
+	
+	j Odd
+	
+	# 4.3 ArraySize is EVEN
+	
+Even:   # 4.3.1 Set the starting counter & index for upper half
+	addi $t4, $s1, 0			# $t8: starting counter for upper half
+	sll  $t2, $t4, 2			# $t2: starting index for upper half
+	j TestEv
+	
+LoopEv: # 4.3.2 Get the values
+	lw $t6, myArray($t1)
+	lw $t7, myArray($t2)
+	
+	# 4.3.3 Check if they are equal
+	bne $t6, $t7, NotEq
+	
+	# 4.3.4 Increase counter & index
+	addi $t1, $t1, 4
+	addi $t2, $t2, 4
+	addi $t3, $t3, 1
+	addi $t4, $t4, 1
+			
+TestEv: slt $t5, $t3, $s1 
+	bne $t5, $0, LoopEv	
+	
+	j Equal
+
+
+	# 4.4 ArraySize is EVEN
+			
+Odd:	# 4.4.1 Set the starting counter & index for upper half
+	addi $t4, $s1, 1			# $t8: starting counter for upper half			
+	sll  $t2, $t4, 2			# $t2: starting index for upper half
+	j TestOd
+
+LoopOd: # 4.4.2 Get the values
+	lw $t6, myArray($t1)
+	lw $t7, myArray($t2)
+	
+	# 4.4.3 Check if they are equal
+	bne $t6, $t7, NotEq
+	
+	# 4.4.4 Increase counter & index
+	addi $t1, $t1, 4
+	addi $t2, $t2, 4
+	addi $t3, $t3, 1
+	addi $t4, $t4, 1
+
+TestOd: slt $t5, $t3, $s1 
+	bne $t5, $0, LoopOd				
+	
+	
+	# 5. Print the appropriate message
+	
+	
+Equal:  jal prntnl
+	li $v0, 4
+	la $a0, msgIsIden
+	syscall
+	j Fin
+	
+NotEq:	jal prntnl
+	li $v0, 4
+	la $a0, msgNotIden
+	syscall
+	
+	
+Fin:	# END OF MAIN
+	li $v0, 10
+	syscall
+	
+	
+	# Print new line
+prntnl: li $v0, 4
+	la $a0, newLine
+	syscall
+	jr $ra
+	
+	# Print space & comma
+prntsp: li $v0, 4
+	la $a0, space
+	syscall
+	jr $ra
+	
+	
