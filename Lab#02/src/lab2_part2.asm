@@ -1,0 +1,412 @@
+
+#############################
+
+# LAB 2 | LAB WORK 2
+# CS224-06 Computer Architecture
+# Barış Tan Ünal
+# 22003617
+
+# Array processing.
+
+#############################
+
+.data
+	newLine:		.asciiz " \n"
+	whiteSpace:		.asciiz " "
+	commaSpace:		.asciiz ", "
+	msgArraySize:		.asciiz "\nPlease enter the size of the array: "
+	msgArrayElements:	.asciiz "\nPlease enter the elements of the array:\n"
+	msgPrintArray:		.asciiz "\nYour array is:\n"
+	msgSortedPrompt:	.asciiz "\n\nSorted array:\n"
+	msgProcessedPrompt:	.asciiz "\n\nProcessed array:\n"
+
+.text
+main:
+	# 1. Call createArray.
+	jal createArray
+	
+	# 2. Get the arrayAddress and arraySize values.
+	add $a0, $v0, $0					# $a0: arraySize
+	add $a1, $v1, $0					# $a1: arrayAddress
+
+	# 3. Call bubbleSort.
+	jal bubbleSort
+	
+	# 4. Get the arrayAddress and arraySize values.
+	add $a0, $v0, $0					# $a0: arraySize
+	add $a1, $v1, $0					# $a1: arrayAddress
+
+	# 5. Call processSortedArray.
+	jal processSortedArray
+
+	li $v0, 10						# end of main
+	syscall
+
+	#----------------------------------
+
+processSortedArray:
+	
+	# 1. Push $s registers to the stack.
+	addi $sp, $sp, -32
+	sw   $s0, 0($sp)	
+	sw   $s1, 4($sp)
+	sw   $s2, 8($sp)
+	sw   $s3, 12($sp)
+	sw   $s4, 16($sp)
+	sw   $s5, 20($sp)
+	sw   $s6, 24($sp)
+	sw   $s7, 28($sp)
+	
+	# 2. Get the arguments.	
+	add  $s0, $a0, $0					# $s0: arraySize		
+	add  $s1, $a1, $0					# $s1: arrayAddress
+			
+	# 3. Traverse the array.
+	
+	li $v0, 4
+	la $a0, msgProcessedPrompt
+	syscall
+	
+	# 3.1 Initiliaze the registers.
+	add  $s2, $0, $s1					# $s2: index -   increases by 4 (= arrayAddress)
+	add  $s3, $0, $0					# $s3: counter - increases by 1 (= 0)
+			
+	ProcessTraverseLoop:
+		lw $s4, 0($s2)					# $s4: current element
+		
+		addi $s3, $s3, 1				# cntr = cntr + 1
+		
+		# 3.2 Print the index of current element.
+		li  $v0, 1
+		add $a0, $s3, $0
+		syscall
+		
+		li $v0, 4
+		la $a0, whiteSpace
+		syscall
+		
+		# 3.3 Print the current element.
+		li  $v0, 1
+		add $a0, $s4, $0
+		syscall
+		
+		li $v0, 4
+		la $a0, whiteSpace
+		syscall
+		
+		# 3.4 Print the sum of digits.
+		
+		# 3.4.1 Pass the argument for sumDigits.
+		add $a0, $0, $s4
+		
+		# 3.4.2 Push the $ra to the stack.
+		addi $sp, $sp, -4
+		sw   $ra, 0($sp)
+		
+		# 3.4.3 Call the sumDigits.
+		jal sumDigits
+		
+		# 3.4.4 Pop the $ra from the stack.
+		lw   $ra, 0($sp)
+		addi $sp, $sp, 4
+		
+		# 3.4.5 Take the return value from sumDigits.
+		add $s5, $0, $v0				# $s5: sum of digits
+		
+		# 3.4.6 Print the calculated sum of digits.
+		li  $v0, 1
+		add $a0, $s5, $0
+		syscall
+		
+		li $v0, 4
+		la $a0, newLine
+		syscall
+		
+		addi $s2, $s2, 4				# index = index + 4
+		
+	ProcessTraverseTest:
+		bne $s3, $s0, ProcessTraverseLoop
+		
+		
+	# 5. Save the return values.
+	add $v0, $s0, $0
+	add $v1, $s1, $0					
+
+	# 6. Pop $s registers from the stack.
+	sw   $s0, 0($sp)	
+	sw   $s1, 4($sp)
+	sw   $s2, 8($sp)
+	sw   $s3, 12($sp)
+	sw   $s4, 16($sp)
+	sw   $s5, 20($sp)
+	sw   $s6, 24($sp)
+	sw   $s7, 28($sp)
+	addi $sp, $sp, 32				
+																							
+	jr $ra		
+	
+	#----------------------------------
+	# end of processSortedArray subprogram
+	#----------------------------------
+	
+	
+sumDigits:
+	
+	# 1. Push $s registers to the stack.
+	addi $sp, $sp, -32
+	sw   $s0, 0($sp)	
+	sw   $s1, 4($sp)
+	sw   $s2, 8($sp)
+	sw   $s3, 12($sp)
+	sw   $s4, 16($sp)
+	sw   $s5, 20($sp)
+	sw   $s6, 24($sp)
+	sw   $s7, 28($sp)
+	
+	# 2. Get the argument.	
+	add  $s4, $0, $0					# $s4: sum of digits
+	add  $s5, $a0, $0					# $s5: decimal number	
+	addi $s7, $0, 10					# $s7 = 10	
+	
+	# 3. Calculate sum of digits with a loop.
+	sumDigitsLoop:
+		div  $s5, $s7
+		mflo $s5
+		mfhi $s6					# $s6: lastDigit
+		add  $s4, $s4, $s6				# sum = sum + lastDigit
+	
+	sumDigitsTest:
+		bne $s5, $0, sumDigitsLoop
+	
+	# 4. Save the return value.
+	add $v0, $s4, $0					# $v0: sum of digits				
+
+	# 5. Pop $s registers from the stack.
+	lw   $s0, 0($sp)	
+	lw   $s1, 4($sp)
+	lw   $s2, 8($sp)
+	lw   $s3, 12($sp)
+	lw   $s4, 16($sp)
+	lw   $s5, 20($sp)
+	lw   $s6, 24($sp)
+	lw   $s7, 28($sp)
+	addi $sp, $sp, 32				
+																							
+	jr $ra	
+	
+	#----------------------------------
+	# end of sumDigits subprogram
+	#----------------------------------
+	
+	
+bubbleSort:
+
+	# 1. Push $s registers to the stack.
+	addi $sp, $sp, -32
+	sw   $s0, 0($sp)	
+	sw   $s1, 4($sp)
+	sw   $s2, 8($sp)
+	sw   $s3, 12($sp)
+	sw   $s4, 16($sp)
+	sw   $s5, 20($sp)
+	sw   $s6, 24($sp)
+	sw   $s7, 28($sp)
+	
+	# 2. Get the arguments.	
+	add  $s0, $a0, $0					# $s0: arraySize		
+	add  $s1, $a1, $0					# $s1: arrayAddress
+		
+				
+	# 3. Bubble sort the array.
+	
+	# 3.1 Initiliaze the registers.
+	SortLoop:
+		
+		add  $s3, $0, $0				# $s3: isChanged
+		add  $s2, $0, $s1				# $s2: current element index
+		addi $s4, $0, 1					# $s4: counter - increases by 1 (= 1)
+		
+		beq $s0, $s4, PrintSortedArray	
+		
+		TraverseLoop:
+			
+			lw $s5, 0($s2)				# $s5: current element
+			lw $s6, 4($s2)				# $s6: next element
+			
+			beq $s5, $s6, SkipSwap
+		
+			add $s7, $0, $0				# slt
+			slt $s7, $s5, $s6
+			bne $s7, $0, SkipSwap
+		
+			add  $s7, $s5, $0			# temp = cur
+			add  $s5, $s6, $0			# cur = next
+			add  $s6, $s7, $0			# next = temp
+			addi $s3, $0, 1				# $s3 = 1 (isChanged)
+			
+			sw $s5, 0($s2)				# $s5: current element
+			sw $s6, 4($s2)				# $s6: next element
+		
+		SkipSwap:
+			addi $s4, $s4, 1
+			addi $s2, $s2, 4
+		
+		TraverseTest:
+			bne $s4, $s0, TraverseLoop
+	
+	SortTest:
+		bne $s3, $0, SortLoop
+	
+	
+	PrintSortedArray:
+		# 4. Print the array elements.
+		add  $s2, $s1, $0					# $s2: arrayAddress / index - increases by 4
+		add  $s3, $0, $0					# $s3: counter - increases by 1 (= 0)
+	
+		# 4.1 Print the print array prompt.
+		li $v0, 4
+		la $a0, msgSortedPrompt
+		syscall
+	
+		j PrintSortedArrayTest
+	
+	PrintSortedArrayLoop:
+		lw   $s4, 0($s2)				# $s4: current element
+		li   $v0, 1	
+		add  $a0, $s4, $0
+		syscall
+	
+		li $v0, 4
+		la $a0, commaSpace
+		syscall
+	
+		addi $s2, $s2, 4			
+		addi $s3, $s3, 1
+
+	PrintSortedArrayTest:  
+		bne $s3, $s0, PrintSortedArrayLoop
+		
+	
+	# 5. Save the return values.
+	add $v0, $s0, $0
+	add $v1, $s1, $0					
+
+	# 6. Pop $s registers from the stack.
+	lw   $s0, 0($sp)	
+	lw   $s1, 4($sp)
+	lw   $s2, 8($sp)
+	lw   $s3, 12($sp)
+	lw   $s4, 16($sp)
+	lw   $s5, 20($sp)
+	lw   $s6, 24($sp)
+	lw   $s7, 28($sp)
+	addi $sp, $sp, 32				
+																							
+	jr $ra
+	
+	#----------------------------------
+	# end of bubbleSort subprogram
+	#----------------------------------
+	
+		
+createArray:
+
+	# 1. Push $s registers to the stack.
+	addi $sp, $sp, -16
+	sw   $s0, 0($sp)	
+	sw   $s1, 4($sp)
+	sw   $s2, 8($sp)
+	sw   $s3, 12($sp)
+
+	# 2.1 Ask the user for the array size.
+	li $v0, 4
+	la $a0, msgArraySize
+	syscall
+	
+	# 2.2 Get the array size
+	li $v0, 5
+	syscall
+	
+	add $s0, $v0, $0				# $s0: arraySize
+	
+	# 2.3 Allocate the appropriate space for the array.
+	sll $s1, $s0, 2
+	li  $v0, 9
+	add $a0, $s1, $0
+	syscall
+	
+	add $s1, $v0, $0				# $s1: arrayAddress
+	
+	
+	# 3. Get the array elements.
+	add $s2, $s1, $0				# $s2: arrayAddress / index - increases by 4
+	add $s3, $0, $0					# $s3: counter - increases by 1 (= 0)
+	
+	# 3.1 Ask the user for the array elements.
+	li $v0, 4
+	la $a0, msgArrayElements
+	syscall
+	
+	j GetArrayTest
+	
+	GetArrayLoop:
+		# 3.2 Get the element.
+		li $v0, 5					# get the value from user
+		syscall
+					
+		# 3.3 Save the element.												
+		sw   $v0, 0($s2)				# put the value in the array 
+		addi $s3, $s3, 1				# cntr = cntr + 1
+		addi $s2, $s2, 4				# index = index + 4
+	
+	GetArrayTest:	
+		bne $s3, $s0, GetArrayLoop
+	
+	
+		# 4. Print the array elements.
+		add  $s2, $s1, $0				# $s2: arrayAddress / index - increases by 4
+		add  $s3, $0, $0				# $s3: counter - increases by 1 (= 0)
+	
+		# 4.1 Print the print array prompt.
+		li $v0, 4
+		la $a0, msgPrintArray
+		syscall
+	
+		j PrintArrayTest
+
+	PrintArrayLoop:
+		lw   $s4, 0($s2)				# $s4: current element
+		li   $v0, 1	
+		add  $a0, $s4, $0
+		syscall
+	
+		li $v0, 4
+		la $a0, commaSpace
+		syscall
+	
+		addi $s2, $s2, 4			
+		addi $s3, $s3, 1
+	
+	PrintArrayTest:  
+		bne $s3, $s0, PrintArrayLoop
+		
+		
+		# 4. Save the return values.
+		add $v0, $s0, $0				# $v0: arraySize
+		add $v1, $s1, $0				# $v1: arrayAddress
+	
+		# 5. Pop $s registers from the stack.
+		lw  $s0, 0($sp)	
+		lw  $s1, 4($sp)
+		lw  $s2, 8($sp)
+		lw  $s3, 12($sp)
+		addi $sp, $sp, 16
+	
+		jr $ra
+	
+	#----------------------------------
+	# end of createArray subprogram
+	#----------------------------------
+
+
+
