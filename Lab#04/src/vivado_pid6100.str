@@ -1,0 +1,151 @@
+/*
+
+Xilinx Vivado v2020.1 (64-bit) [Major: 2020, Minor: 1]
+SW Build: 2902540 on Wed May 27 19:54:49 MDT 2020
+IP Build: 2902112 on Wed May 27 22:43:36 MDT 2020
+
+Process ID (PID): 6100
+License: Customer
+
+Current time: 	Wed Apr 06 14:49:29 EET 2022
+Time zone: 	Eastern European Time (Asia/Istanbul)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1920x1080
+Screen resolution (DPI): 125
+Available screens: 1
+Default font: family=Segoe UI,name=Segoe UI,style=plain,size=15
+
+Java version: 	9.0.4 64-bit
+Java home: 	C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/tps/win64/jre9.0.4
+Java executable location: 	C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	Hasan Fehmi ÜNAL
+User home directory: C:/Users/hasan
+User working directory: C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04
+User country: 	TR
+User language: 	tr
+User locale: 	tr_TR
+
+RDI_BASEROOT: C:/Users/hasan/Desktop/Vivado/Vivado
+HDI_APPROOT: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1
+RDI_DATADIR: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/data
+RDI_BINDIR: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/bin
+
+Vivado preferences file location: C:/Users/hasan/AppData/Roaming/Xilinx/Vivado/2020.1/vivado.xml
+Vivado preferences directory: C:/Users/hasan/AppData/Roaming/Xilinx/Vivado/2020.1/
+Vivado layouts directory: C:/Users/hasan/AppData/Roaming/Xilinx/Vivado/2020.1/data/layouts
+PlanAhead jar file location: 	C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04/vivado.log
+Vivado journal file location: 	C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04/vivado.jou
+Engine tmp dir: 	C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04/.Xil/Vivado-6100-DESKTOP-K61K83R
+
+Xilinx Environment Variables
+----------------------------
+XILINX: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/ids_lite/ISE
+XILINX_DSP: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/ids_lite/ISE
+XILINX_PLANAHEAD: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1
+XILINX_VIVADO: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1
+XILINX_VIVADO_HLS: C:/Users/hasan/Desktop/Vivado/Vivado/2020.1
+
+
+GUI allocated memory:	154 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 583 MB
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// WARNING: HEventQueue.dispatchEvent() is taking  3470 ms.
+// TclEventType: PROJECT_OPEN_DIALOG
+// WARNING: HEventQueue.dispatchEvent() is taking  1021 ms.
+// TclEventType: PROJECT_OPEN_DIALOG
+// bz (cs):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\hasan\Desktop\CS224Labs\Lab04Project\Lab04\Lab04.xpr. Version: Vivado v2020.1 
+// HMemoryUtils.trashcanNow. Engine heap size: 583 MB. GUI used memory: 79 MB. Current time: 4/6/22, 2:49:31 PM EET
+// Tcl Message: open_project C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04/Lab04.xpr 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04/Lab04.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Users/hasan/Desktop/Vivado/Vivado/2020.1/data/ip'. 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 86 MB (+87552kb) [00:00:59]
+// [Engine Memory]: 583 MB (+460257kb) [00:00:59]
+// [GUI Memory]: 98 MB (+8055kb) [00:00:59]
+// [GUI Memory]: 115 MB (+12669kb) [00:01:01]
+// [GUI Memory]: 133 MB (+12826kb) [00:01:03]
+// WARNING: HEventQueue.dispatchEvent() is taking  1355 ms.
+// Project name: Lab04; location: C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04; part: xc7a35tcpg236-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:35 ; elapsed = 00:00:26 . Memory (MB): peak = 1014.266 ; gain = 0.000 
+dismissDialog("Open Project"); // bz (cs)
+// Tcl Message: update_compile_order -fileset sources_1 
+// PAPropertyPanels.initPanels (MIPSLite.sv) elapsed time: 0.3s
+// Elapsed time: 117 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (MIPSLite.sv)]", 1, true); // B (F, cs) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (MIPSLite.sv)]", 1, true, false, false, false, false, true); // B (F, cs) - Double Click - Node
+// Elapsed time: 53 seconds
+selectCodeEditor("MIPSLite.sv", 826, 430, false, false, false, true, false); // bP (w, cs) - Popup Trigger
+selectCodeEditor("MIPSLite.sv", 453, 364); // bP (w, cs)
+// Elapsed time: 815 seconds
+selectCodeEditor("MIPSLite.sv", 494, 170); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 491, 166); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 516, 264); // bP (w, cs)
+// [GUI Memory]: 142 MB (+2929kb) [00:20:26]
+// Elapsed time: 177 seconds
+selectCodeEditor("MIPSLite.sv", 338, 241); // bP (w, cs)
+// Elapsed time: 118 seconds
+selectCodeEditor("MIPSLite.sv", 269, 320); // bP (w, cs)
+// Elapsed time: 10 seconds
+selectCodeEditor("MIPSLite.sv", 100, 178); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 265, 347); // bP (w, cs)
+// Elapsed time: 15 seconds
+selectCodeEditor("MIPSLite.sv", 375, 320); // bP (w, cs)
+// Elapsed time: 80 seconds
+selectCodeEditor("MIPSLite.sv", 484, 449); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 593, 136); // bP (w, cs)
+// Elapsed time: 22 seconds
+selectCodeEditor("MIPSLite.sv", 449, 174); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 526, 166); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 437, 184); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 421, 217); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 306, 191); // bP (w, cs)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 58 seconds
+selectCodeEditor("MIPSLite.sv", 390, 376); // bP (w, cs)
+// Elapsed time: 30 seconds
+selectCodeEditor("MIPSLite.sv", 456, 409); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 204, 455); // bP (w, cs)
+selectCodeEditor("MIPSLite.sv", 178, 450); // bP (w, cs)
+// Elapsed time: 24 seconds
+selectCodeEditor("MIPSLite.sv", 122, 30); // bP (w, cs)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE

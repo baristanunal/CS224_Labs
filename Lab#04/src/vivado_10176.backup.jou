@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed Apr  6 21:17:58 2022
+# Process ID: 10176
+# Current directory: C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10020 C:\Users\hasan\Desktop\CS224Labs\Lab04Project\Lab04\Lab04.xpr
+# Log file: C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04/vivado.log
+# Journal file: C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/hasan/Desktop/CS224Labs/Lab04Project/Lab04/Lab04.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source MIPSLite_sim.tcl
+close_sim
+launch_simulation
+source MIPSLite_sim.tcl
+save_wave_config {C:/Users/hasan/Desktop/MIPSLite_sim_behav.wcfg}
+add_files -fileset sim_1 -norecurse C:/Users/hasan/Desktop/MIPSLite_sim_behav.wcfg
+set_property xsim.view C:/Users/hasan/Desktop/MIPSLite_sim_behav.wcfg [get_filesets sim_1]
+save_wave_config {C:/Users/hasan/Desktop/MIPSLite_sim_behav.wcfg}
+close_sim
