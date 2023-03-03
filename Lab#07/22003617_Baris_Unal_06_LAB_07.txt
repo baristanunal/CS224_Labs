@@ -1,0 +1,290 @@
+
+CS224 
+Lab No: 7
+Section No: 06
+Barış Tan Ünal
+22003617
+
+
+/*
+
+	CS224 LAB 07 WORK PART A - SFRs for DC Motor
+	Authors: Mert Ünlü (22003747) and Barış Tan Ünal (22003617)
+	Section: 06
+	Date: 08.05.2022
+
+*/
+
+
+1. INPUTS:
+	1.a) TRISD:: Designates push buttons as inputs for DC Motor
+	1.b) PORTD:: Represents push button inputs for direction of turn of DC Motor
+	1.c) LATD::: For resetting push buttons
+
+2. OUTPUTS:
+	2.a) TRISC:: Designates DC Motor to be output of the program
+	2.b) PORTC:: Decides DC Motor's direction of turn
+	2.c) LATC::: For resetting DC Motor
+
+//----------------------------------------------------------------------------------------------
+
+/*
+
+	CS224 LAB 07 PRELIMINARY WORK PART B - DC MOTOR C Code
+	Authors: Mert Ünlü (22003747) and Barış Tan Ünal (22003617)
+	Section: 06
+	Date: 08.05.2022
+
+	This program uses portD as inputs for two push buttons to manipulate DC Motor as output. 
+	Therefore, portD should be connected to push button module in BETI PIC32 egitim seti.
+	There are three possible cases:
+	1. Button0 pushed / Button1 not pushed = turn counter-clockwise
+	2. Button0 not pushed / Button1 pushed = turn clockwise
+	3. Both buttons pushed = do not turn
+
+	Setting: Pull-up / 5V ::: portD jumper
+		 Pull-up / 5V ::: portE jumper
+
+*/
+
+void main() {
+
+	AD1PCFG = 0xFFFF;       // Configure AN pins as digital I/O
+	DDPCON.JTAGEN = 0; 	// JTAG is disabled
+
+	TRISD = 0xFFFF		// portD is inputs for push buttons
+	TRISC = 0x0000		// portC is outputs for DC motor
+
+	LATC = 0x0000
+	LATD = 0x0000
+	
+	PORTC = 0x0000
+	PORTD = 0xFFFF		// resetting DC motor & push buttons
+	
+	int pushButton0;
+	int pushButton1;
+
+	// always do...
+	while(1) {
+
+		pushButton0 = ( 0000_0001 == ( portD & 0000_0001 ) );		// mask portD for pushButton0 -- turn ccw if the last bit of portD (pb0) is pushed
+		pushButton1 = ( 0000_0001 == ( ( portD >> 1 ) & 0000_0001 ) );	// mask portD for pushButton1 -- turn cw if the second last bit of portD (pb1) is pushed
+
+		portCbits.RC1 = pushButton0;	// turn ccw
+		portCbits.RC2 = pushButton1;	// turn cw	
+	}
+
+}
+
+//----------------------------------------------------------------------------------------------
+
+
+/*
+
+	CS224 LAB 07 PRELIMINARY WORK PART C - SFRs for Seven Segment
+	Authors: Mert Ünlü (22003747) and Barış Tan Ünal (22003617)
+	Section: 06
+	Date: 08.05.2022
+
+*/
+
+1. OUTPUTS:
+	1.a) TRISC:: Designates portC as output for determining sevenSeg value
+	1.b) PORTC:: Decides which sevenSeg value to be displayed
+	1.c) TRISD:: Designates portD as ouput for determining which one of four digits to be lit
+	1.d) PORTD:: Decides which sevenSeg digit to be lit
+
+//----------------------------------------------------------------------------------------------
+
+/*
+
+	CS224 LAB 07 PART D - Seven Segment C Code
+	Authors: Mert Ünlü (22003747) and Barış Tan Ünal (22003617)
+	Section: 06
+	Date: 08.05.2022
+
+	This program counts from 4321 and increases each digit by one after waiting for a second 
+	while it also checks if the digit overflows or not at each time,
+	if it does it continues from 1 and counts upwards as before.
+
+*/
+
+void wait(){
+
+	Delay_ms(1000);		// one second
+}
+
+void main() {
+
+	unsigned char sevenSegCat[10] = { 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F }; 	// {0, 1, 2, 3, 4, 5, 6, 7, 8, 9} as digits cathodes for ease of use
+	
+	int dig3 = 4;	// leftmost bit counter
+	int dig2 = 3;	// second leftmost bit counter
+	int dig1 = 2;	// second rightmost bit counter
+	int dig0 = 1;	// rightmost bit counter
+
+ 	AD1PCFG = 0xFFFF;       // Configure AN pins as digital I/O
+	JTAGEN_bit = 0;		// disable JTAG
+
+	TRISC = 0x0000;		// portC determines which sevenSeg digit to display - cathodes (0, 1, ...or 9 )
+	TRISD = 0x0000;		// portD determines which digit to show - anodes ( no.0, no.1, no.2 or no.3 )
+
+
+	// always do...
+	while(1) { 		// since seven segment display can display up to 9, loop checks for every digit whether they exceed or not
+		
+		if( dig3 >= 10 ) {	// reset if counter exceeds one digit representation
+			dig3 = 1;
+		}
+		PORTC = sevenSegCat[ dig3 ];	// display value of dig3
+		PORTD = 0x08;			// 4'b1000
+
+		if( dig2 >= 10 ) {	// reset if counter exceeds one digit representation
+			dig2 = 1;
+		}
+		PORTC = sevenSegCat[ dig2 ];	// display value of dig2
+		PORTD = 0x04;			// 4'b0100
+
+		if( dig1 >= 10 ) {	// reset if counter exceeds one digit representation
+			dig1 = 1;
+		}
+		PORTC = sevenSegCat[ dig1 ];	// display value of dig1
+		PORTD = 0x02;			// 4'b0010	
+
+		if( dig0 >= 10 ) {	// reset if counter exceeds one digit representation
+			dig0 = 1;
+		}
+		PORTC = sevenSegCat[ dig0 ];	// display value of dig0
+		PORTD = 0x01;			// 4'b0001
+
+		dig3++;
+		dig2++;
+		dig1++;
+		dig0++;
+		
+		wait();
+	}
+
+}
+
+
+
+//----------------------------------------------------------------------------------------------
+
+
+/*
+
+	CS224 LAB 07 PRELIMINARY WORK PART E - SFRs for Digital Counter
+	Authors: Mert Ünlü (22003747) and Barış Tan Ünal (22003617)
+	Section: 06
+	Date: 08.05.2022
+
+*/
+
+1. INPUTS:
+	1.a) TRISD:: Designates portD as input from push buttons
+	1.b) PORTD:: Determines the mode of counting, either lsb set as rightmost bit or leftmost bit
+
+1. OUTPUTS:
+	2.a) TRISC:: Designates portC as output for LEDs
+	2.b) PORTC:: Decides which LED to be lit, depending on the counter value
+	2.c) LATC::: Gets the counter value for LEDs
+
+//----------------------------------------------------------------------------------------------
+
+/*
+
+	CS224 LAB 07 PART F - Digital Counter C Code
+	Authors: Mert Ünlü (22003747) and Barış Tan Ünal (22003617)
+	Section: 06
+	Date: 08.05.2022
+
+	This program counts with two possible modes:
+		1. Lsb set as leftmost bit --> if push button no.0 is pushed
+		2. Lsb set as rightmost bit --> if push button no.1 is pushed
+
+	This program counts displays 8 bit counter on the LEDs (which should be connected to PORTC) 
+	with the selected mode above depending on the push button inputs (which should be connected to PORTD).
+
+*/
+
+
+void wait(){
+
+	Delay_ms(1000);		// one second
+}
+
+void main() {
+
+	int counter = 0x11;
+	
+	int bit0;
+	int bit1;
+	int bit2;
+	int bit3;
+	int bit4;
+	int bit5;
+	int bit6;
+	int bit7;	
+
+	AD1PCFG = 0xFFFF;       // Configure AN pins as digital I/O
+	JTAGEN_bit = 0;		// disabling JTAG
+
+	TRISC = 0x0000;		// setting LEDs as outputs
+	TRISD = 0x1111;		// setting push buttons as inputs
+
+	LATC = 0xFF;		// LEDs are turned off at first
+	
+	// always do...
+	while(1) {
+		
+		// RESET
+		if( PORTDbits.RF2 == 1 ) {
+			counter = 0x11;
+			LATC = counter;
+		}
+
+		// COUNT WITH LSB AS RIGHTMOST BIT
+		else if( PORTDbits.RF1 == 0 && PORTDBits.RF0 == 1 ) {
+			
+			counter--;
+			LATC = counter;
+		}
+
+		// COUNT WITH LSB AS LEFTMOST BIT
+		else if( PORTDbits.RF1 == 1 && PORTDBits.RF0 == 0 ) {
+			
+			counter--;
+			
+			bit0 = (counter & 0x01) == 0x01; 	//8'b0000_0001
+			bit1 = (counter & 0x02) == 0x02;  	//8'b0000_0010	
+			bit2 = (counter & 0x04) == 0x04;	//8'b0000_0100	
+			bit3 = (counter & 0x08) == 0x08;	//8'b0000_1000
+			bit4 = (counter & 0x10) == 0x10;	//8'b0001_0000	
+			bit5 = (counter & 0x20) == 0x20;	//8'b0010_0000
+			bit6 = (counter & 0x40) == 0x40;	//8'b0100_0000
+			bit7 = (counter & 0x80) == 0x80;	//8'b1000_0000
+
+			// switch the places of LED pairs { (0-7), (1-6), (2-5), (3-4) }
+			LATC.F0 = bit7;
+			LATC.F1 = bit6;
+			LATC.F2 = bit5;
+			LATC.F3 = bit4;
+			LATC.F4 = bit3;
+			LATC.F5 = bit2;
+			LATC.F6 = bit1;
+			LATC.F7 = bit0;
+		}
+		
+		// DO NOT MANIPULATE LEDs if no button is pushed
+		else {
+			
+			LATC = counter;
+		}
+		
+		wait();		// wait for a second
+	}
+
+}
+
+
