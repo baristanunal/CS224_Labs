@@ -1,0 +1,32 @@
+/*
+
+	CS224 LAB 07 PART B - Seven Segment
+	Authors: Mert Ünlü (22003747) and Barış Tan Ünal (22003617)
+	Date: 08.05.2022
+
+	This program 
+
+*/
+
+void wait(){
+
+	Delay_ms(5);
+}
+
+void main() {
+
+ 	AD1PCFG = 0xFFFF;       // Configure AN pins as digital I/O
+	JTAGEN_bit = 0;		// disable JTAG
+
+	TRISD = 0xFFFF	// portD is inputs for push buttons
+	LATD = 0x0000
+
+	// always do...
+	while(1) {
+
+		
+
+	}
+	
+
+}
