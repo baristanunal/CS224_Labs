@@ -1,0 +1,402 @@
+
+#############################
+
+# LAB 6 | PRELIMINARY PART 1
+# CS224-06 Computer Architecture
+# Barış Tan Ünal
+# 22003617
+
+# Contents of a square matrix.
+
+#############################
+
+.data
+	msgMenuPrompt:		.asciiz "\n\n1. Create matrix manually by dimensions & elements. \n2. Create matrix automatically by dimensions. \n3. Display a desired element of the matrix by specifying its row & column number. \n4. Display entire matrix. \n5. Copy matrix to another matrix. \n6. EXIT. \n\nPlease select a operation: "
+	
+	msgRowCount:		.asciiz "\nNumber of ROWS: "
+	msgColumnCount:		.asciiz "Number of COLUMNS: "
+	msgCreateConfirmation:  .asciiz "\nMatrix created successfully!\n"
+	
+	msgRowNo:		.asciiz "\nRow No: "
+	msgColumnNo:		.asciiz "Column No: "
+	msgFindElement:		.asciiz "\nElement in the given place: "
+	
+	msgNextElement:		.asciiz "Enter next element: "
+	
+	tab:			.asciiz "\t"
+	newLine:		.asciiz "\n\n"
+	
+	msgAskCopy:		.asciiz "\n\nPlese press 0 for row wise copy, 1 for column wise copy: "
+	msgCopyConfirmation:	.asciiz "\nMatrix copied successfully!\n"
+
+.text
+
+.globl main
+main:
+
+Menu:
+	# 1. Display the menu.
+	li $v0, 4
+	la $a0, msgMenuPrompt
+	syscall
+	
+	# 2. Get the input operation.
+	li $v0, 5
+	syscall
+	add $t0, $v0, $0				# $t0: operation no.
+	
+	# 3. Go to the desired operation function.
+	addi $t1, $0, 1
+	addi $t2, $0, 2
+	addi $t3, $0, 3
+	addi $t4, $0, 4
+	addi $t5, $0, 5
+	addi $t6, $0, 6
+
+	beq $t0, $t1, CreateManual
+	beq $t0, $t2, CreateAuto
+	beq $t0, $t3, DisplayElement
+	beq $t0, $t4, DisplayMatrix
+	beq $t0, $t5, CopyMatrix
+	beq $t0, $t6, Exit
+	
+	
+	# 4. Execute the operation.
+	
+	# 4.1 CREATE MATRIX MANUALLY
+	CreateManual:
+	
+		# 4.1.1 Ask & get the size of the matrix.
+		
+		li $v0, 4
+		la $a0, msgRowCount
+		syscall
+		
+		li $v0, 5
+		syscall
+		add $s2, $v0, $0				# $s2: row count
+		
+		li $v0, 4
+		la $a0, msgColumnCount
+		syscall
+		
+		li $v0, 5
+		syscall
+		add $s3, $v0, $0				# $s3: column count
+		
+	
+		# 4.1.2 Allocate the appropriate space for the array.
+		
+		mul $s0, $s2, $s3				# size = R * C * 4
+		sll $s0, $s0, 2					# $s0: arrayByteSize
+		li  $v0, 9					
+		add $a0, $s0, $0
+		syscall
+		
+		add $s1, $v0, $0				# $s1: arrayAddress
+		
+		mul $s4, $s2, $s3				# $s4: arraySize
+	
+	
+		# 4.1.3 Fill the values of each element.
+		
+		add $t0, $0, $s4				# $t0: loop decrement
+		add $t1, $0, $0					# $t1: value for current element
+		add $t2, $0, $s1				# $t2: address offset
+		j TestFillManual
+		
+		LoopFillManual:
+			li $v0, 4
+			la $a0, msgNextElement
+			syscall
+		
+			li $v0, 5
+			syscall
+			add $t1, $v0, $0			# $t1: input matrix element
+			
+			sw   $t1, 0($t2)
+			addi $t2, $t2, 4
+			addi $t0, $t0, -1
+		
+		TestFillManual:	
+			bne $t0, $0, LoopFillManual
+		
+		li $v0, 4
+		la $a0, msgCreateConfirmation
+		syscall
+		j Menu
+	
+	#------------------------------------------------------------	
+		
+	# 4.2 CREATE MATRIX AUTOMATICALLY
+	CreateAuto:
+	
+		# 4.2.1 Ask & get the size of the matrix.
+		
+		li $v0, 4
+		la $a0, msgRowCount
+		syscall
+		
+		li $v0, 5
+		syscall
+		add $s2, $v0, $0				# $s2: row count
+		
+		li $v0, 4
+		la $a0, msgColumnCount
+		syscall
+		
+		li $v0, 5
+		syscall
+		add $s3, $v0, $0				# $s3: column count
+		
+	
+		# 4.2.2 Allocate the appropriate space for the array.
+		
+		mul $s0, $s2, $s3
+		sll $s0, $s0, 2					# size = R * C * 4
+		li  $v0, 9					# $s0: arrayByteSize
+		add $a0, $s0, $0
+		syscall
+		
+		add $s1, $v0, $0				# $s1: arrayAddress
+		
+		mul $s4, $s2, $s3				# $s4: arraySize
+	
+	
+		# 4.2.3 Fill the values of each element.
+		
+		add $t0, $0, $s4				# $t0: loop decrement
+		add $t1, $0, $0					# $t1: value for current element
+		add $t2, $0, $s1				# $t2: address offset
+		j TestFillAuto
+		
+		LoopFillAuto:
+			addi $t1, $t1, 1
+			sw   $t1, 0($t2)
+			addi $t2, $t2, 4
+			addi $t0, $t0, -1
+			
+		TestFillAuto:	
+			bne $t0, $0, LoopFillAuto
+		
+		li $v0, 4
+		la $a0, msgCreateConfirmation
+		syscall
+		j Menu
+	
+	#------------------------------------------------------------
+	
+	# 4.3 DISPLAY ELEMENT
+	DisplayElement:
+	
+		# 4.3.1 Ask & get the row and column no of the element.
+		
+		li $v0, 4
+		la $a0, msgRowNo
+		syscall
+		
+		li $v0, 5
+		syscall
+		add $t0, $v0, $0				# $t0: row no
+		
+		li $v0, 4
+		la $a0, msgColumnNo
+		syscall
+		
+		li $v0, 5
+		syscall
+		add $t1, $v0, $0				# $t1: column no
+		
+		
+		# 4.3.2 Find & display the element.
+		
+		addi $t0, $t0, -1				# (i-1)
+		addi $t1, $t1, -1				# (j-1)
+		
+		mul $t0, $t0, $s3				# M * (i-1)
+		add $t0, $t0, $t1				# M * (i-1) + (j-1)
+		sll $t0, $t0, 2					# 4 * ( M * (i-1) + (j-1) )
+		add $t0, $t0, $s1
+		
+		lw $t0, 0($t0)
+		
+		li $v0, 4
+		la $a0, msgFindElement
+		syscall	
+		
+		li $v0, 1
+		add $a0, $0, $t0
+		syscall	
+		
+		j Menu
+	
+	#------------------------------------------------------------
+	
+	# 4.4 DISPLAY MATRIX
+	DisplayMatrix:
+		
+		li $v0, 4
+		la $a0, newLine
+		syscall
+		
+		add $t0, $0, $s2			# $t0: row decrement 
+		add $t1, $0, $s3			# $t1: column decrement count
+		add $t2, $0, $0				# $t2: value for current element
+		add $t3, $0, $s1			# $t3: address offset
+		
+		j TestDisplayOuter
+		
+		LoopDisplayOuter:
+			
+			add  $t1, $0, $s3			# $t1: column decrement count // reset for each row
+			addi $t0, $t0, -1
+			
+			j TestDisplayInner
+			
+			LoopDisplayInner:
+				lw   $t2, 0($t3)
+				addi $t3, $t3, 4
+				addi $t1, $t1, -1
+				
+				li  $v0, 1
+				add $a0, $t2, $0
+				syscall	
+			
+				li $v0, 4
+				la $a0, tab
+				syscall
+			
+			TestDisplayInner:
+				bne $t1, $0, LoopDisplayInner
+				
+			li $v0, 4
+			la $a0, newLine
+			syscall
+							
+		TestDisplayOuter:	
+			bne $t0, $0, LoopDisplayOuter
+		
+		j Menu
+	
+	#------------------------------------------------------------
+	
+	# 4.5.1 COPY MATRIX
+	CopyMatrix:
+	
+		# $s0: arrayByteSize
+		# $s1: arrayAddress1
+		# $s2: rowCount
+		# $s3: columnCount
+		# $s4: arraySize
+		# $s5: arrayAddress2
+		
+		add $t1, $0, $
+	
+		# 4.5.1 Allocate memory for new matrix.
+		li  $v0, 9					
+		add $a0, $s0, $0
+		syscall
+		
+		add $s5, $0, $v0				# $s5: arrayAddress2
+		
+		# 4.5.2 Ask the user for row / column wise copy.
+		
+		li $v0, 4
+		la $a0, msgAskCopy
+		syscall
+		
+		li $v0, 5
+		syscall
+		add $t0, $v0, $0				# $t0: copy type
+		
+		beq $t0, $0, RowWiseCopy
+		
+		# 4.5.3.1 Column-wise copy.
+		ColumnWiseCopy:
+			
+			add $t0, $0, $s2			# $t0: row decrement 
+			add $t1, $0, $s3			# $t1: column decrement count
+			add $t2, $0, $0				# $t2: value of current element
+			add $t3, $0, $s1			# $t3: address1 offset
+			add $t4, $0, $s5			# $t4: address2 offset
+			sll $t5, $s3, 2				# $t5: increment amount for add2 offset
+			
+			add $t6, $0, $0				# $t6: column tracker count
+			
+			j TestCopyColumnOuter
+		
+			LoopCopyColumnOuter:
+			
+				add  $t0, $0, $s2			# $t0: row decrement count // reset for each column
+				addi $t1, $t1, -1
+				
+				add $t3, $0, $s1			# $t3: address1 offset
+				add $t4, $0, $s5			# $t4: address2 offset
+				
+				sll  $t7, $t6, 2
+				add  $t3, $t3, $t7
+				add  $t4, $t4, $t7
+				addi $t6, $t6, 1
+			
+				j TestCopyColumnInner
+			
+				LoopCopyColumnInner:
+					lw  $t2, 0($t3)
+					add $t3, $t3, $t5
+					
+					sw  $t2, 0($t4)
+					add $t4, $t4, $t5
+					
+					addi $t0, $t0, -1
+			
+				TestCopyColumnInner:
+					bne $t0, $0, LoopCopyColumnInner
+							
+			TestCopyColumnOuter:	
+				bne $t1, $0, LoopCopyColumnOuter
+			
+			j FinishCopy
+			
+			
+		# 4.5.3.2 Row-wise copy.	
+		RowWiseCopy:	
+			
+			add $t1, $0, $s4				# $t1: size decrement
+			add $t2, $0, $0					# $t2: value for current element
+			add $t3, $0, $s1				# $t3: address1 offset
+			add $t4, $0, $s5				# $t3: address2 offset
+		
+			LoopCopyRow:
+				lw   $t2, 0($t3)
+				addi $t3, $t3, 4
+					
+				sw   $t2, 0($t4)
+				addi $t4, $t4, 4
+				
+				addi $t1, $t1, -1
+			
+			TestCopyRow:
+				bne $t1, $0, LoopCopyRow
+				
+		
+		# 4.5.4 Display success message.
+		
+		FinishCopy:	
+		
+			add $s1, $s5, $0				# address1 = address2 / update address
+						
+			li $v0, 4
+			la $a0, msgCopyConfirmation
+			syscall	
+			j Menu
+	
+	Exit:
+	
+	li $v0, 10							# end of main
+	syscall
+#------------------------------------------------------------
+
+		
+
+
+
